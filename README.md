@@ -1,9 +1,9 @@
 <p align="center">
-    <img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/ec559a9f6bfd399b82bb44393651661b08aaf7ba/icons/folder-markdown-open.svg" align="center" width="30%">
+    <img src="https://cdn-icons-png.flaticon.com/128/18400/18400079.png" align="center" width="30%">
 </p>
 <p align="center"><h1 align="center">QUANT-GEN_DASHBOARD</h1></p>
 <p align="center">
-	<em><code>❯ REPLACE-ME</code></em>
+	<em>AI-Powered Financial Risk Prediction & Analysis Dashboard</em>
 </p>
 <p align="center">
 	<img src="https://img.shields.io/github/license/Sweety-Pandit/Quant-Gen_Dashboard?style=default&logo=opensourceinitiative&logoColor=white&color=0080ff" alt="license">
@@ -38,13 +38,21 @@
 
 ##  Overview
 
-<code>❯ REPLACE-ME</code>
+**Quant-Gen Dashboard** is an AI-driven analytics platform designed for quantitative modeling and risk forecasting in financial data.  
+It integrates **machine learning** with **explainable AI insights**, empowering analysts to make informed, data-driven decisions.  
+
+Built using **Python** and **Streamlit**, it offers a sleek dashboard to visualize data trends, model training metrics, and automatically generate AI-powered reports.
 
 ---
 
 ##  Features
 
-<code>❯ REPLACE-ME</code>
+- 📊 Interactive dashboard for live analytics and visualizations  
+- 🤖 Machine learning–based quantitative risk model  
+- 🧠 GenAI-powered report generation for financial insights  
+- ⚙️ Modular architecture for easy scalability and customization  
+- 📈 Real-time model evaluation and explainability support  
+- 💾 Lightweight deployment with Streamlit
 
 ---
 
@@ -73,15 +81,15 @@
 			<table>
 			<tr>
 				<td><b><a href='https://github.com/Sweety-Pandit/Quant-Gen_Dashboard/blob/master/quant_model.py'>quant_model.py</a></b></td>
-				<td><code>❯ REPLACE-ME</code></td>
+				<td>Defines and trains the machine learning model for quantitative risk prediction</td>
 			</tr>
 			<tr>
 				<td><b><a href='https://github.com/Sweety-Pandit/Quant-Gen_Dashboard/blob/master/app.py'>app.py</a></b></td>
-				<td><code>❯ REPLACE-ME</code></td>
+				<td>Streamlit frontend app for data input, visualization, and predictions</td>
 			</tr>
 			<tr>
 				<td><b><a href='https://github.com/Sweety-Pandit/Quant-Gen_Dashboard/blob/master/genai_report.py'>genai_report.py</a></b></td>
-				<td><code>❯ REPLACE-ME</code></td>
+				<td>Generates AI-driven explanations and reports based on model outputs</td>
 			</tr>
 			</table>
 		</blockquote>
@@ -95,45 +103,44 @@
 
 Before getting started with Quant-Gen_Dashboard, ensure your runtime environment meets the following requirements:
 
-- **Programming Language:** Python
+- Python ≥ 3.10
+
+- pip installed
+
+- Virtual environment (recommended)
 
 
 ###  Installation
 
-Install Quant-Gen_Dashboard using one of the following methods:
+Clone the repository and install dependencies:
 
-**Build from source:**
-
-1. Clone the Quant-Gen_Dashboard repository:
-```sh
-❯ git clone https://github.com/Sweety-Pandit/Quant-Gen_Dashboard
-```
-
-2. Navigate to the project directory:
-```sh
-❯ cd Quant-Gen_Dashboard
-```
-
-3. Install the project dependencies:
-
-echo 'INSERT-INSTALL-COMMAND-HERE'
-
-
-
+	git clone https://github.com/Sweety-Pandit/Quant-Gen_Dashboard
+	cd Quant-Gen_Dashboard
+	pip install -r requirements.txt
+		
 ###  Usage
-Run Quant-Gen_Dashboard using the following command:
-echo 'INSERT-RUN-COMMAND-HERE'
+Run the dashboard locally using Streamlit:
+	bash
+	
+	streamlit run app.py
 
 ###  Testing
 Run the test suite using the following command:
-echo 'INSERT-TEST-COMMAND-HERE'
+
+	pytest
 
 ---
 ##  Project Roadmap
 
-- [X] **`Task 1`**: <strike>Implement feature one.</strike>
-- [ ] **`Task 2`**: Implement feature two.
-- [ ] **`Task 3`**: Implement feature three.
+[✔] Implement base Quant model training pipeline
+
+[✔] Integrate GenAI report generation module
+
+[✔] Add multi-factor portfolio analytics
+
+[✔] Include live financial data ingestion
+
+[✔] Add explainable AI (XAI) visual insights
 
 ---
 
@@ -180,14 +187,4 @@ echo 'INSERT-TEST-COMMAND-HERE'
 
 ---
 
-##  License
-
-This project is protected under the [SELECT-A-LICENSE](https://choosealicense.com/licenses) License. For more details, refer to the [LICENSE](https://choosealicense.com/licenses/) file.
-
----
-
-##  Acknowledgments
-
-- List any resources, contributors, inspiration, etc. here.
-
----
+<p align="center"> © 2025 <b>Quant-Gen Dashboard</b> • Built with 💙 by Sweety Pandit </p>
