@@ -10,7 +10,6 @@ from quant_model import train_quant_model
 # ------------------ CONFIG ------------------
 st.set_page_config(
     page_title="Quant + Gemini AI Financial Dashboard",
-    page_icon="💹",
     layout="wide"
 )
 load_dotenv()
@@ -106,20 +105,20 @@ h1, h2, h3 {
 """, unsafe_allow_html=True)
 
 # ------------------ HEADER ------------------
-st.markdown("<h1>💹 Quant + Gemini AI Hybrid Dashboard</h1>", unsafe_allow_html=True)
+st.markdown("<h1> Quant + Gemini AI Hybrid Dashboard</h1>", unsafe_allow_html=True)
 st.markdown("<p style='text-align:center; font-size:18px;'>AI-powered risk prediction with Gemini-based financial insights</p>", unsafe_allow_html=True)
 st.divider()
 
 # ------------------ MODEL TRAINING ------------------
 try:
     model, acc, df, target_col = train_quant_model("data/credit_data.csv")
-    st.success(f"✅ Model trained successfully — Accuracy: {acc:.2f}")
+    st.success(f"Model trained successfully — Accuracy: {acc:.2f}")
 except Exception as e:
     st.error(f"Error training model: {e}")
     st.stop()
 
 # ------------------ SIDEBAR INPUT ------------------
-st.sidebar.header("📊 Customer Data Input")
+st.sidebar.header("Customer Data Input")
 input_data = {}
 for col in df.drop(target_col, axis=1).columns:
     if df[col].dtype == 'object':
@@ -156,7 +155,7 @@ if st.sidebar.button("🔮 Predict Default Risk"):
 
         # Right Column: Gemini AI Insight
         with col2:
-            with st.spinner("🤖 Gemini analyzing..."):
+            with st.spinner("Gemini analyzing..."):
                 prompt = f"""
                 You are a financial AI analyst.
                 The model predicted this customer's credit default risk as '{risk_label}' with a probability of {prob:.2f}.
@@ -166,7 +165,7 @@ if st.sidebar.button("🔮 Predict Default Risk"):
                 response = model_gemini.generate_content(prompt)
                 ai_text = response.text
 
-                st.markdown("<h3 style='text-align:center;'>🧠 Gemini AI Financial Insight</h3>", unsafe_allow_html=True)
+                st.markdown("<h3 style='text-align:center;'>Gemini AI Financial Insight</h3>", unsafe_allow_html=True)
                 st.markdown(f"<div class='gemini-insight'>{ai_text}</div>", unsafe_allow_html=True)
 
     except Exception as e:
@@ -175,11 +174,11 @@ if st.sidebar.button("🔮 Predict Default Risk"):
 # ------------------ SAVE MODEL ------------------
 if st.sidebar.button("💾 Save Model"):
     joblib.dump(model, "quant_model.pkl")
-    st.sidebar.success("Model saved as quant_model.pkl ✅")
+    st.sidebar.success("Model saved as quant_model.pkl")
 
 # ------------------ FOOTER ------------------
 st.markdown("""
 <div class="footer">
-    Built by <b>Sweety</b> | Powered by <b>Gemini AI + Quant Intelligence</b> 💹
+    Built by <b>Sweety</b> | Powered by <b>Gemini AI + Quant Intelligence</b>
 </div>
 """, unsafe_allow_html=True)
