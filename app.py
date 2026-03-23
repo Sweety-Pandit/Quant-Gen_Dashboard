@@ -127,7 +127,7 @@ for col in df.drop(target_col, axis=1).columns:
         input_data[col] = st.sidebar.number_input(f"{col}", value=float(df[col].mean()))
 
 # ------------------ PREDICTION ------------------
-if st.sidebar.button("🔮 Predict Default Risk"):
+if st.sidebar.button("Predict Default Risk"):
     user_df = pd.DataFrame([input_data])
 
     # Encode categorical values
@@ -172,7 +172,7 @@ if st.sidebar.button("🔮 Predict Default Risk"):
         st.error(f"Prediction failed: {e}")
 
 # ------------------ SAVE MODEL ------------------
-if st.sidebar.button("💾 Save Model"):
+if st.sidebar.button("Save Model"):
     joblib.dump(model, "quant_model.pkl")
     st.sidebar.success("Model saved as quant_model.pkl")
 
