@@ -7,7 +7,6 @@ import os
 import google.generativeai as genai
 from quant_model import train_quant_model
 
-# ------------------ CONFIG ------------------
 st.set_page_config(
     page_title="Quant + Gemini AI Financial Dashboard",
     layout="wide"
@@ -17,7 +16,6 @@ load_dotenv()
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 model_gemini = genai.GenerativeModel("gemini-2.5-flash-lite")
 
-# ------------------ CUSTOM STYLES ------------------
 st.markdown("""
 <style>
 /* Main background and font */
@@ -104,12 +102,10 @@ h1, h2, h3 {
 </style>
 """, unsafe_allow_html=True)
 
-# ------------------ HEADER ------------------
 st.markdown("<h1> Quant + Gemini AI Hybrid Dashboard</h1>", unsafe_allow_html=True)
 st.markdown("<p style='text-align:center; font-size:18px;'>AI-powered risk prediction with Gemini-based financial insights</p>", unsafe_allow_html=True)
 st.divider()
 
-# ------------------ MODEL TRAINING ------------------
 try:
     model, acc, df, target_col = train_quant_model("data/credit_data.csv")
     st.success(f"Model trained successfully — Accuracy: {acc:.2f}")
@@ -117,7 +113,6 @@ except Exception as e:
     st.error(f"Error training model: {e}")
     st.stop()
 
-# ------------------ SIDEBAR INPUT ------------------
 st.sidebar.header("Customer Data Input")
 input_data = {}
 for col in df.drop(target_col, axis=1).columns:
@@ -126,7 +121,6 @@ for col in df.drop(target_col, axis=1).columns:
     else:
         input_data[col] = st.sidebar.number_input(f"{col}", value=float(df[col].mean()))
 
-# ------------------ PREDICTION ------------------
 if st.sidebar.button("Predict Default Risk"):
     user_df = pd.DataFrame([input_data])
 
@@ -141,10 +135,9 @@ if st.sidebar.button("Predict Default Risk"):
         risk_label = "High Risk" if prediction == 1 else "Low Risk"
         color = "#ff4b4b" if prediction == 1 else "#00c851"
 
-        # ------------------ TWO-COLUMN LAYOUT ------------------
         col1, col2 = st.columns(2)
 
-        # Left Column: Prediction Card
+        #Prediction Card
         with col1:
             st.markdown(f"""
             <div class="prediction-card">
@@ -153,7 +146,7 @@ if st.sidebar.button("Predict Default Risk"):
             </div>
             """, unsafe_allow_html=True)
 
-        # Right Column: Gemini AI Insight
+        #AI Insight
         with col2:
             with st.spinner("Gemini analyzing..."):
                 prompt = f"""
@@ -171,12 +164,10 @@ if st.sidebar.button("Predict Default Risk"):
     except Exception as e:
         st.error(f"Prediction failed: {e}")
 
-# ------------------ SAVE MODEL ------------------
 if st.sidebar.button("Save Model"):
     joblib.dump(model, "quant_model.pkl")
     st.sidebar.success("Model saved as quant_model.pkl")
 
-# ------------------ FOOTER ------------------
 st.markdown("""
 <div class="footer">
     Built by <b>Sweety</b> | Powered by <b>Gemini AI + Quant Intelligence</b>
